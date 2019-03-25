@@ -9,7 +9,7 @@ services:
       - ./ros.env
     command: roscore
   monitor:
-    image: docker_ui
+    image: jeguzzi/df:docker-ui
     volumes:
       - ./logs:/root/.ros/log:rw
       - /var/run/docker.sock:/var/run/docker.sock
@@ -21,8 +21,8 @@ services:
     # ports:
     #   - 8085:8085
     #   - 9090:9090
-    depends_on:
-      - roscore
+    #depends_on:
+    #  - roscore
   driver:
     network_mode: *nm
     image: jeguzzi/drone_arena:bebop
